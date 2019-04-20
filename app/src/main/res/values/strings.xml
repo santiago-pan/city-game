@@ -1,0 +1,56 @@
+<resources>
+
+    <string name="app_name">CityBombing</string>
+
+    <!-- MAIN SCREEN -->
+
+    <string name="main_screen_play_game">PLAY GAME</string>
+    <string name="main_screen_sound_off">SOUND OFF</string>
+    <string name="main_screen_sound_on">SOUND ON</string>
+    <string name="main_screen_help">STATS</string>
+
+    <!-- MENU 1 -->
+
+    <string name="menu_1_new_game">NEW GAME</string>
+    <string name="menu_1_continue">CONTINUE</string>
+
+    <!-- GAME MENU -->
+
+    <string name="game_menu_msg_game_over">GAME OVER</string>
+    <string name="game_menu_msg_game_win">LEVEL</string>
+    <string name="game_menu_msg_game_win2">COMPLETED</string>
+    <string name="game_menu_btn_next_level">NEXT LEVEL</string>
+    <string name="game_menu_btn_try_again">TRY AGAIN</string>
+    <string name="game_menu_btn_exit">MAIN MENU</string>
+    <string name="game_current_level">Level: </string>
+    <string name="game_current_points">Points: </string>
+    <string name="game_current_shoots">Ammo: </string>
+
+    <!-- OPTIONS MENU -->
+
+    <string name="game_menu_msg_game_paused">PAUSED</string>
+    <string name="game_menu_btn_continue">CONTINUE</string>
+    <string name="game_menu_btn_sound_off">SOUND OFF</string>
+    <string name="game_menu_btn_sound_on">SOUND ON</string>
+
+    <!-- STATS -->
+    <string name="stats_button_ok">OK</string>
+    <string name="stats_button_share">SHARE</string>
+    <string name="stats_label_level">Level:</string>
+    <string name="stats_label_points">Points:</string>
+    <string name="stats_label_shots">Fire power:</string>
+    <string name="stats_label_accuracy">Accuracy:</string>
+    <string name="stats_label_game_time">Game time:</string>
+    <string name="stats_label_speed">Shot speed:</string>
+    <string name="stats_label_green">Wrong targets:</string>
+    <string name="stats_label_lost_games">Lost games:</string>
+
+    <!-- SHARE -->
+    <string name="share_subject">CityBombing Stats</string>
+    <string name="share_title">CityBombing</string>
+
+    <!-- CONGRATS -->
+    <string name="congrats_title">Congratulations!</string>
+    <string name="congrats_text1">You win!</string>
+
+</resources>

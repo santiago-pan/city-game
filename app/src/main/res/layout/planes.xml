@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_main_background">
+
+    <Button
+        android:id="@+id/btPlaneA"
+        style="@style/CustomButtonStyle"
+        android:layout_above="@+id/btPlaneB"
+        android:layout_alignParentRight="true"
+        android:text="B52"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:gravity="left|center_vertical"
+        android:drawableRight="@drawable/ic_plane_type_a" />
+
+    <Button
+        android:id="@+id/btPlaneC"
+        style="@style/CustomButtonStyle"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btPlaneB"
+        android:text="NCC"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:gravity="left|center_vertical"        
+        android:drawableRight="@drawable/button_plane_e"  />
+
+    <Button
+        android:id="@+id/btPlaneB"
+        style="@style/CustomButtonStyle"
+        android:layout_alignLeft="@+id/btPlaneC"
+        android:layout_centerVertical="true"
+        android:drawableRight="@drawable/button_plane_b"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:text="F21" />
+
+</RelativeLayout>

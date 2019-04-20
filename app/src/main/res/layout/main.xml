@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_main_background">
+    <Button
+        android:id="@+id/btPlayGame"
+        style="@style/CustomButtonStyle"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/btSound"
+        android:text="@string/main_screen_play_game" />
+    <Button
+        android:id="@+id/btSound"
+        style="@style/CustomButtonStyle"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/main_screen_sound_on" />
+    <Button
+        android:id="@+id/btHelp"
+        style="@style/CustomButtonStyle"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btSound"
+        android:text="@string/main_screen_help" />
+</RelativeLayout>

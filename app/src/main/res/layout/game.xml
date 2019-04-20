@@ -1,0 +1,232 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/GameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <com.nadisam.citybombing.levels.Game
+            android:id="@+id/gameSurfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/gameInfoPanel"
+            android:layout_width="260dip"
+            android:layout_height="260dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/black_border"
+            android:visibility="invisible" >
+
+            <Button
+                android:id="@+id/btInfoButtonA"
+                style="@style/CustomButtonStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/game_menu_btn_next_level" />
+
+            <TextView
+                android:id="@+id/textViewLevel"
+                style="@style/GameInfoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/btInfoButtonA"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="24dip"
+                android:gravity="center_horizontal"
+                android:text="@string/game_menu_msg_game_win"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btInfoButtonB"
+                style="@style/CustomButtonStyle"
+                android:layout_below="@id/btInfoButtonA"
+                android:layout_centerHorizontal="true"
+                android:text="@string/game_menu_btn_try_again" />
+
+            <Button
+                android:id="@+id/btInfoButtonC"
+                style="@style/CustomButtonStyle"
+                android:layout_below="@id/btInfoButtonB"
+                android:layout_centerHorizontal="true"
+                android:text="@string/game_menu_btn_exit" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/postCardAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/black" />
+
+    <!-- *************************** UP GAME INDICATORS *************************** -->
+
+    <RelativeLayout
+        android:id="@+id/levelRelativeLayout"
+        android:layout_width="120dip"
+        android:layout_height="40dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/postCardAdView"
+        android:background="@drawable/black_border"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <TextView
+                android:id="@+id/textViewCurrentLevelLabel"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_current_level" />
+
+            <TextView
+                android:id="@+id/textViewCurrentLevel"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textViewCurrentLevelLabel"
+                android:layout_toRightOf="@+id/textViewCurrentLevelLabel"
+                android:text="56" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pointsRelativeLayout"
+        android:layout_width="120dip"
+        android:layout_height="40dip"
+        android:layout_below="@+id/postCardAdView"
+        android:layout_toRightOf="@+id/levelRelativeLayout"
+        android:background="@drawable/black_border"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <TextView
+                android:id="@+id/textViewPointsLabel"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_current_points" />
+
+            <TextView
+                android:id="@+id/textViewPoints"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textViewPointsLabel"
+                android:layout_toRightOf="@+id/textViewPointsLabel"
+                android:text="0" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ammoRelativeLayout"
+        android:layout_width="120dip"
+        android:layout_height="40dip"
+        android:layout_below="@+id/postCardAdView"
+        android:layout_toRightOf="@+id/pointsRelativeLayout"
+        android:background="@drawable/black_border"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <TextView
+                android:id="@+id/textViewShotsLabel"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_current_shoots" />
+
+            <TextView
+                android:id="@+id/textViewShots"
+                style="@style/GameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textViewShotsLabel"
+                android:layout_toRightOf="@+id/textViewShotsLabel"
+                android:text="10"
+                android:textSize="8dip" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/specialSlowMotion"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_below="@+id/postCardAdView"
+        android:layout_toLeftOf="@+id/specialGun"
+        android:background="@drawable/black_border"
+        android:onClick="onSpecialSlowTime"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageSpecialBomb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dip"
+            android:src="@drawable/ic_extra_more_slow" />
+
+        <TextView
+            android:id="@+id/specialMoreSlowTextView"
+            style="@style/GameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dip"
+            android:layout_toRightOf="@+id/imageSpecialBomb"
+            android:text="OFF"
+            android:textSize="10dp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/specialGun"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/postCardAdView"
+        android:background="@drawable/black_border"
+        android:onClick="onSpecialGunClick"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageSpecialBomb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dip"
+            android:src="@drawable/ic_extra_boomb" />
+
+        <TextView
+            android:id="@+id/specialGunTextView"
+            style="@style/GameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dip"
+            android:layout_toRightOf="@+id/imageSpecialBomb"
+            android:text="x0"
+            android:textSize="10dp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>

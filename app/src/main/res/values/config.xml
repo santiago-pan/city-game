@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- FIXME [0] DEMO MODE, [1] RELEASE MODE -->
+    <integer name="release_mode">1</integer>
+    
+    <!-- FIXME [0] FREE VERSION, [1] PRO VERSION -->
+    <integer name="application_vestion_free_or_pro">1</integer>
+    
+</resources>

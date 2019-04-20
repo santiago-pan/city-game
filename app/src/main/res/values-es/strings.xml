@@ -1,0 +1,56 @@
+<resources>
+
+    <string name="app_name">CityBombing</string>
+
+    <!-- MAIN SCREEN -->
+
+    <string name="main_screen_play_game">JUGAR</string>
+    <string name="main_screen_sound_off">SONIDO OFF</string>
+    <string name="main_screen_sound_on">SONIDO ON</string>
+    <string name="main_screen_help">PROGRESO</string>
+
+    <!-- MENU 1 -->
+
+    <string name="menu_1_new_game">NUEVO JUEGO</string>
+    <string name="menu_1_continue">CONTINUAR</string>
+
+    <!-- GAME MENU -->
+
+    <string name="game_menu_msg_game_over">GAME OVER</string>
+    <string name="game_menu_msg_game_win">NIVEL</string>
+    <string name="game_menu_msg_game_win2">COMPLETADO</string>
+    <string name="game_menu_btn_next_level">SIGUIENTE</string>
+    <string name="game_menu_btn_try_again">REINTENTAR</string>
+    <string name="game_menu_btn_exit">MENU PRINCIPAL</string>
+    <string name="game_current_level">Nivel: </string>
+    <string name="game_current_points">Puntos: </string>
+    <string name="game_current_shoots">Munición: </string>
+
+    <!-- OPTIONS MENU -->
+
+    <string name="game_menu_msg_game_paused">PAUSADO</string>
+    <string name="game_menu_btn_continue">CONTINUAR</string>
+    <string name="game_menu_btn_sound_off">SONIDO OFF</string>
+    <string name="game_menu_btn_sound_on">SONIDO ON</string>
+
+    <!-- STATS -->
+    <string name="stats_button_ok">OK</string>
+    <string name="stats_button_share">COMPARTIR</string>
+    <string name="stats_label_level">Nivel:</string>
+    <string name="stats_label_points">Puntos:</string>
+    <string name="stats_label_shots">Potencia:</string>
+    <string name="stats_label_accuracy">Precisión:</string>
+    <string name="stats_label_game_time">Tiempo juego:</string>
+    <string name="stats_label_speed">Agilidad: </string>
+    <string name="stats_label_green">Blancos civiles: </string>
+    <string name="stats_label_lost_games">Juegos perdidos: </string>
+
+    <!-- SHARE -->
+    <string name="share_subject">Estadísticas CityBombing</string>
+    <string name="share_title">CityBombing</string>
+
+    <!-- CONGRATS -->
+    <string name="congrats_title">Enhorabuena!</string>
+    <string name="congrats_text1">Has ganado!</string>
+
+</resources>

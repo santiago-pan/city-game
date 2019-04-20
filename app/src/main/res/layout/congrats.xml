@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/GameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dip" >
+
+    <RelativeLayout
+        android:id="@+id/statsRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonsRelativeLayout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/black_border"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/textViewStatsTitle"
+            style="@style/CustomStatsTextView"
+            android:layout_marginTop="30dip"
+            android:text="CityBombing Stats"
+            android:textSize="22sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewLevel"
+            style="@style/CustomStatsTextView"
+            android:layout_below="@id/textViewStatsTitle"
+            android:layout_marginTop="20dip"
+            android:text="@string/stats_label_level"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewPoints"
+            style="@style/CustomStatsTextView"
+            android:layout_below="@id/textViewLevel"
+            android:layout_marginTop="10dip"
+            android:text="@string/stats_label_points"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewShots"
+            style="@style/CustomStatsTextView"
+            android:layout_below="@id/textViewPoints"
+            android:layout_marginTop="10dip"
+            android:text="@string/stats_label_shots"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewAccurary"
+            style="@style/CustomStatsTextView"
+            android:layout_below="@id/textViewShots"
+            android:layout_marginTop="10dip"
+            android:text="@string/stats_label_accuracy"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonsRelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/btOk"
+            style="@style/CustomButtonStyle"
+            android:layout_centerHorizontal="true"
+            android:text="@string/stats_button_ok" />
+    </RelativeLayout>
+
+</RelativeLayout>

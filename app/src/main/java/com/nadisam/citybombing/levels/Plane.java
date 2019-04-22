@@ -267,7 +267,7 @@ public class Plane implements DrawableItemInterface
         if (mDrawable == null)
             return;
 
-        if (false == mCollision)
+        if (!mCollision)
         {
             // Check where is the plane
             if (this.mX > Utils.mScreenWidth + this.mWidth)
@@ -375,7 +375,7 @@ public class Plane implements DrawableItemInterface
         // Building behind the plane
         Building building = mCity.getBuilding(this.x());
 
-        if ((null != building) && (true == building.collision(this)))
+        if ((null != building) && (building.collision(this)))
         {
             Logger.debug("Plane: Collision start!!");
 

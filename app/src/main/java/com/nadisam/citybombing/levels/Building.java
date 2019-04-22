@@ -16,11 +16,11 @@ public class Building implements DrawableItemInterface
     private Vector<FloorInterface> mBuilding          = null;
     private int                    mX                 = 0;
     private int                    mNumFloors         = 0;
-    private int                    mNumDestroFloors   = 0;
+    private int                    mNumDestroyFloors   = 0;
     private int                    mBuildingWidth     = 0;
     private int                    mBuildingHeight    = 0;
     private boolean                mIsGreenBuilding   = false;
-    private boolean                mGreenDrestroyed   = false;
+    private boolean                mGreenDestroyed   = false;
     
     /**
      * Build building with numFloors and foorTypes
@@ -156,7 +156,7 @@ public class Building implements DrawableItemInterface
         {
             if (true == this.mIsGreenBuilding)
             {
-                this.mGreenDrestroyed = true;
+                this.mGreenDestroyed = true;
             }
             return destroyBuilding(bomb);
         }
@@ -190,7 +190,7 @@ public class Building implements DrawableItemInterface
      */
     public boolean greenDestroyed()
     {
-        return this.mGreenDrestroyed;
+        return this.mGreenDestroyed;
     }
 
     /**
@@ -215,7 +215,7 @@ public class Building implements DrawableItemInterface
                     if (bomb.type() != Defines.BOMB_TYPE_A)
                     {
                         mDestroyedBuilding.add(floor);
-                        mNumDestroFloors += 1;
+                        mNumDestroyFloors += 1;
                     }
 
                     bomb.losePower();
@@ -245,7 +245,7 @@ public class Building implements DrawableItemInterface
         {
             mBuilding.get(i).draw(canvas, time);
         }
-        for (i = 0; i < mNumDestroFloors; i++)
+        for (i = 0; i < mNumDestroyFloors; i++)
         {
             mDestroyedBuilding.get(i).draw(canvas, time);
         }

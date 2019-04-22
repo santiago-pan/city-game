@@ -6,7 +6,7 @@ public class Extra
     // 2 - Slower plane
     // 3 - Extra shoots with stronger bomb
     
-    String type;
+    private String type;
     
     public String getType()
     {

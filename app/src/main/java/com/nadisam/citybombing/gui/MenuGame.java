@@ -14,9 +14,6 @@ import com.nadisam.citybombing.pro.R;
 
 public class MenuGame extends FragmentActivity implements OnClickListener
 {
-    private Button   btNewGame  = null;
-    private Button   btContinue = null;
-    private Typeface font       = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,10 +21,14 @@ public class MenuGame extends FragmentActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_1);
 
+        Button   btNewGame;
+        Button   btContinue;
+        Typeface font;
+
         font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.base_font));
 
-        btNewGame = (Button) findViewById(R.id.btNewGame);
-        btContinue = (Button) findViewById(R.id.btContinue);
+        btNewGame = findViewById(R.id.btNewGame);
+        btContinue = findViewById(R.id.btContinue);
 
         btNewGame.setOnClickListener(this);
         btContinue.setOnClickListener(this);

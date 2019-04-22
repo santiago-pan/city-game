@@ -65,7 +65,7 @@ public class Bullet implements DrawableItemInterface
     {
         bulletPosition();
         
-        if (true == mIsVisible)
+        if (mIsVisible)
         {
             canvas.drawBitmap(this.mBulletDrawable, this.mBulletX, Utils.mScreenHeight - this.mBulletY, mPaint);
         }
@@ -74,7 +74,7 @@ public class Bullet implements DrawableItemInterface
     private void bulletPosition()
     {
         // Left side
-        if (true == mLeftSide)
+        if (mLeftSide)
         {
             mBulletX += mBulletSpeed;
         }

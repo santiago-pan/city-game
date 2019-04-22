@@ -4,17 +4,17 @@ import com.nadisam.citybombing.levels.interfaces.DrawableItemInterface;
 
 public interface FloorInterface extends DrawableItemInterface
 {
-    public int type();
+    int type();
 
-    public int strength();
+    int strength();
 
-    public int x();
+    int x();
 
-    public int y();
+    int y();
 
-    public int height();
+    int height();
 
-    public int width();
+    int width();
 
-    public void destroy();
+    void destroy();
 }

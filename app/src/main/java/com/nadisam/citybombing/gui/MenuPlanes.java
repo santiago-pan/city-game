@@ -30,9 +30,9 @@ public class MenuPlanes extends FragmentActivity implements OnClickListener
 
         font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.base_font));
 
-        btPlaneA = (Button) findViewById(R.id.btPlaneA);
-        btPlaneB = (Button) findViewById(R.id.btPlaneB);
-        btPlaneC = (Button) findViewById(R.id.btPlaneC);
+        btPlaneA = findViewById(R.id.btPlaneA);
+        btPlaneB = findViewById(R.id.btPlaneB);
+        btPlaneC = findViewById(R.id.btPlaneC);
 
         // Check points to enable/disable planes
         this.enablePlanesControl();
@@ -84,7 +84,7 @@ public class MenuPlanes extends FragmentActivity implements OnClickListener
         AppCore.getContext().stopMusic();
         
         int numLevel = this.getIntent().getIntExtra(Defines.NUM_LEVEL_EXTRA, 1);
-        int planeType = Defines.PLANE_TYPE_A;
+        int planeType;
         
         if (v.getId() == R.id.btPlaneA)
         {

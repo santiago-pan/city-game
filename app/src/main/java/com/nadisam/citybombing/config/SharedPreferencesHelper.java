@@ -8,18 +8,18 @@ import com.nadisam.citybombing.log.Logger;
 
 public class SharedPreferencesHelper
 {
-    public static final String SETTINGS_SHARED_PREFERENCES = "com.nadisam.citybombing.configuration";
-    public static final String CONFIGURATION_LEVEL         = "level";
-    public static final String CONFIGURATION_POINTS        = "points";
-    public static final String CONFIGURATION_SHOTS         = "shots";
-    public static final String CONFIGURATION_IMPACTS       = "impacts";
-    public static final String CONFIGURATION_ACCURACY      = "accuracy";
-    public static final String CONFIGURATION_GAME_TIME     = "gametime";
-    public static final String CONFIGURATION_SHOT_SPEED    = "shotspeed";
-    public static final String CONFIGURATION_WRONG_TARGET  = "wrongtarget";
-    public static final String CONFIGURATION_LOST_GAMES    = "lostgames";
+    private static final String SETTINGS_SHARED_PREFERENCES = "com.nadisam.citybombing.configuration";
+    private static final String CONFIGURATION_LEVEL         = "level";
+    private static final String CONFIGURATION_POINTS        = "points";
+    private static final String CONFIGURATION_SHOTS         = "shots";
+    private static final String CONFIGURATION_IMPACTS       = "impacts";
+    private static final String CONFIGURATION_ACCURACY      = "accuracy";
+    private static final String CONFIGURATION_GAME_TIME     = "gametime";
+    private static final String CONFIGURATION_SHOT_SPEED    = "shotspeed";
+    private static final String CONFIGURATION_WRONG_TARGET  = "wrongtarget";
+    private static final String CONFIGURATION_LOST_GAMES    = "lostgames";
 
-    public static final String CONFIGURATION_SOUND         = "sound";
+    private static final String CONFIGURATION_SOUND         = "sound";
 
     public static void saveLevel(int level)
     {
@@ -59,16 +59,6 @@ public class SharedPreferencesHelper
     public static int getShots()
     {
         return get(CONFIGURATION_SHOTS);
-    }
-
-    public static void saveAccuracy(int accuracy)
-    {
-        set(CONFIGURATION_ACCURACY, accuracy);
-    }
-
-    public static int getAccuracy()
-    {
-        return get(CONFIGURATION_ACCURACY);
     }
 
     public static void saveGameTime(int time)
@@ -121,16 +111,6 @@ public class SharedPreferencesHelper
         return get(CONFIGURATION_SOUND, true);
     }
 
-    public static void clear()
-    {
-        SharedPreferences settings = AppCore.getContext().getSharedPreferences(SETTINGS_SHARED_PREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.remove(CONFIGURATION_LEVEL);
-        editor.remove(CONFIGURATION_POINTS);
-        editor.remove(CONFIGURATION_SOUND);
-        editor.commit();
-    }
-
     private static void set(String id, int value)
     {
         try
@@ -138,7 +118,7 @@ public class SharedPreferencesHelper
             SharedPreferences settings = AppCore.getContext().getSharedPreferences(SETTINGS_SHARED_PREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt(id, value);
-            editor.commit();
+            editor.apply();
         }
         catch (Exception e)
         {
@@ -153,7 +133,7 @@ public class SharedPreferencesHelper
             SharedPreferences settings = AppCore.getContext().getSharedPreferences(SETTINGS_SHARED_PREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putBoolean(id, value);
-            editor.commit();
+            editor.apply();
         }
         catch (Exception e)
         {
@@ -168,7 +148,7 @@ public class SharedPreferencesHelper
             SharedPreferences settings = AppCore.getContext().getSharedPreferences(SETTINGS_SHARED_PREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString(id, value);
-            editor.commit();
+            editor.apply();
         }
         catch (Exception e)
         {

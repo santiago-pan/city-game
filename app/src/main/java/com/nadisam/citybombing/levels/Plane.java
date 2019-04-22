@@ -85,7 +85,7 @@ public class Plane implements DrawableItemInterface
     public Bomb fire()
     {
         // If you have bombs and you are not in a collision then you can keep firing.
-        if ((this.mShots > 0) && (false == this.mCollision))
+        if ((this.mShots > 0) && (!this.mCollision))
         {
             mBomb = new Bomb(this.mBombType, this.xBomb(), this.yBomb());
             this.updateFirePower(mBomb);
@@ -106,7 +106,7 @@ public class Plane implements DrawableItemInterface
      */
     public Bomb fire(int bombType)
     {
-        if (false == this.mCollision)
+        if (!this.mCollision)
         {
             this.mBomb = new Bomb(bombType, this.xBomb(), this.yBomb());
             this.updateFirePower(mBomb);
@@ -146,7 +146,7 @@ public class Plane implements DrawableItemInterface
         for (int i = iniIndex; i < endIndex; i++)
         {
             Building building = this.mCity.getBuildingByLocation(i);
-            if (false == building.isGreen())
+            if (!building.isGreen())
             {
                 Bomb bomb = new Bomb(Defines.BOMB_TYPE_A, building.x(), this.yBomb() + (cnt * this.mGap));
                 this.updateFirePower(bomb);
@@ -211,7 +211,7 @@ public class Plane implements DrawableItemInterface
      */
     public boolean setLowSpeed()
     {
-        if (true == mExtraLowSpeed)
+        if (mExtraLowSpeed)
         {
             mSpeed = mSpeed - mSpeed / 4;
             return true;
@@ -369,7 +369,7 @@ public class Plane implements DrawableItemInterface
     private void crashManagement()
     {
         // If already in collision no more checking
-        if (true == mCollision)
+        if (mCollision)
             return;
 
         // Building behind the plane

@@ -104,24 +104,24 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
 
         font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.base_font));
 
-        mGameSurface = (com.nadisam.citybombing.levels.Game) findViewById(R.id.gameSurfaceView);
+        mGameSurface = findViewById(R.id.gameSurfaceView);
         mGameSurface.setOnClickListener(this);
         mGameSurface.setSurfaceHolderCallback(this);
 
-        textViewCurrentLevelLabel = (TextView) findViewById(R.id.textViewCurrentLevelLabel);
-        textViewCurrentLevel = (TextView) findViewById(R.id.textViewCurrentLevel);
-        textViewPointsLabel = (TextView) findViewById(R.id.textViewPointsLabel);
-        textViewPoints = (TextView) findViewById(R.id.textViewPoints);
-        textViewShotsLabel = (TextView) findViewById(R.id.textViewShotsLabel);
-        textViewShots = (TextView) findViewById(R.id.textViewShots);
-        textViewLevel = (TextView) findViewById(R.id.textViewLevel);
-        textViewSpecialGun = (TextView) findViewById(R.id.specialGunTextView);
-        textViewMoreTime = (TextView) findViewById(R.id.specialMoreSlowTextView);
+        textViewCurrentLevelLabel = findViewById(R.id.textViewCurrentLevelLabel);
+        textViewCurrentLevel = findViewById(R.id.textViewCurrentLevel);
+        textViewPointsLabel = findViewById(R.id.textViewPointsLabel);
+        textViewPoints = findViewById(R.id.textViewPoints);
+        textViewShotsLabel = findViewById(R.id.textViewShotsLabel);
+        textViewShots = findViewById(R.id.textViewShots);
+        textViewLevel = findViewById(R.id.textViewLevel);
+        textViewSpecialGun = findViewById(R.id.specialGunTextView);
+        textViewMoreTime = findViewById(R.id.specialMoreSlowTextView);
 
-        gameInfoPanel = (RelativeLayout) findViewById(R.id.gameInfoPanel);
-        btnA = (Button) findViewById(R.id.btInfoButtonA);
-        btnB = (Button) findViewById(R.id.btInfoButtonB);
-        btnC = (Button) findViewById(R.id.btInfoButtonC);
+        gameInfoPanel = findViewById(R.id.gameInfoPanel);
+        btnA = findViewById(R.id.btInfoButtonA);
+        btnB = findViewById(R.id.btInfoButtonB);
+        btnC = findViewById(R.id.btInfoButtonC);
 
         btnA.setOnClickListener(this);
         btnB.setOnClickListener(this);
@@ -218,14 +218,14 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
     {
         Extra gameExtra = mExtras.getExtraScore();
 
-        if (true == mPlane.collision())
+        if (mPlane.collision())
         {
             gameOver();
 
             // Update lost games
             LostGames.update();
         }
-        if (true == mCity.greenDestroyed())
+        if (mCity.greenDestroyed())
         {
             gameOver();
 
@@ -234,7 +234,7 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
             // Update when there is a wrong target destroyed
             WrongTarget.update();
         }
-        if (true == mCity.allClear())
+        if (mCity.allClear())
         {
             gameWin();
         }
@@ -554,7 +554,7 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
             num--;
 
             // Update text
-            textViewSpecialGun.setText("x" + String.valueOf(num));
+            textViewSpecialGun.setText("x" + num);
         }
     }
 
@@ -562,7 +562,7 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
     {
         String text = textViewMoreTime.getText().toString();
 
-        if (true == text.contains("ON"))
+        if (text.contains("ON"))
         {
             textViewMoreTime.setText("OFF");
             mPlane.resetSpeed();
@@ -570,7 +570,7 @@ public class Level extends FragmentActivity implements SurfaceHolder.Callback, a
         else
         {
             // Only if it is enabled
-            if (true == mPlane.setLowSpeed())
+            if (mPlane.setLowSpeed())
             {
                 textViewMoreTime.setText("ON");
             }

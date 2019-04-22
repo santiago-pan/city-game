@@ -27,9 +27,9 @@ public class JsonHelper
         return levels.get(numLevel-1);
     }
     
-    public static Levels getLevels (Context context)
+    private static Levels getLevels (Context context)
     {
-        String json = null;
+        String json;
         Levels levels = null;
         
         try
@@ -47,7 +47,7 @@ public class JsonHelper
     
     private static String readLevels(Context context) throws java.io.IOException
     {
-        InputStream inputStream = null;
+        InputStream inputStream;
         inputStream = context.getResources().openRawResource(R.raw.levels);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuffer result = new StringBuffer();

@@ -52,7 +52,7 @@ public class Enemies implements DrawableItemInterface
         for (i = 0; i < numEnemy; i++)
         {
             Enemy enemy = floorEnemies.get(i);
-            if (true == enemy.shoot())
+            if (enemy.shoot())
             {
                 mBullets.add(new Bullet(enemy));
             }

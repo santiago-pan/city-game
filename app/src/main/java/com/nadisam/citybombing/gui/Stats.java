@@ -23,7 +23,6 @@ import com.nadisam.citybombing.pro.R;
 
 public class Stats extends FragmentActivity implements OnClickListener
 {
-    private TextView tvStatsLabel     = null;
     protected TextView tvStats          = null;
 
     private TextView tvLevelLabel     = null;
@@ -55,32 +54,32 @@ public class Stats extends FragmentActivity implements OnClickListener
 
         font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.base_font));
 
-        tvStats = (TextView) findViewById(R.id.textViewStatsTitle);
+        tvStats = findViewById(R.id.textViewStatsTitle);
         tvStats.setTypeface(font);
 
-        tvLevelLabel = (TextView) findViewById(R.id.textViewLevelLabel);
-        tvLevel = (TextView) findViewById(R.id.textViewLevel);
+        tvLevelLabel = findViewById(R.id.textViewLevelLabel);
+        tvLevel = findViewById(R.id.textViewLevel);
 
-        tvPointsLabel = (TextView) findViewById(R.id.textViewPointsLabel);
-        tvPoints = (TextView) findViewById(R.id.textViewPoints);
+        tvPointsLabel = findViewById(R.id.textViewPointsLabel);
+        tvPoints = findViewById(R.id.textViewPoints);
 
-        tvBombsLabel = (TextView) findViewById(R.id.textViewShotsLabel);
-        tvBombs = (TextView) findViewById(R.id.textViewShots);
+        tvBombsLabel = findViewById(R.id.textViewShotsLabel);
+        tvBombs = findViewById(R.id.textViewShots);
 
-        tvAccuracyLabel = (TextView) findViewById(R.id.textViewAcruracyLabel);
-        tvAccuracy = (TextView) findViewById(R.id.textViewAccuracy);
+        tvAccuracyLabel = findViewById(R.id.textViewAcruracyLabel);
+        tvAccuracy = findViewById(R.id.textViewAccuracy);
 
-        tvGameTimeLabel = (TextView) findViewById(R.id.textViewGameTimeLabel);
-        tvGameTime = (TextView) findViewById(R.id.textViewGameTime);
+        tvGameTimeLabel = findViewById(R.id.textViewGameTimeLabel);
+        tvGameTime = findViewById(R.id.textViewGameTime);
 
-        tvShotSpeedLabel = (TextView) findViewById(R.id.textViewSpeedLabel);
-        tvShotSpeed = (TextView) findViewById(R.id.textViewSpeed);
+        tvShotSpeedLabel = findViewById(R.id.textViewSpeedLabel);
+        tvShotSpeed = findViewById(R.id.textViewSpeed);
 
-        tvGreenLabel = (TextView) findViewById(R.id.textViewGreenLabel);
-        tvGreen = (TextView) findViewById(R.id.textViewGreen);
+        tvGreenLabel = findViewById(R.id.textViewGreenLabel);
+        tvGreen = findViewById(R.id.textViewGreen);
 
-        tvLostLabel = (TextView) findViewById(R.id.textViewLostGamesLabel);
-        tvLost = (TextView) findViewById(R.id.textViewLostGames);
+        tvLostLabel = findViewById(R.id.textViewLostGamesLabel);
+        tvLost = findViewById(R.id.textViewLostGames);
 
         tvLevelLabel.setTypeface(font);
         tvLevel.setTypeface(font);
@@ -99,11 +98,11 @@ public class Stats extends FragmentActivity implements OnClickListener
         tvLostLabel.setTypeface(font);
         tvLost.setTypeface(font);
 
-        btShare = (Button) findViewById(R.id.btShare);
+        btShare = findViewById(R.id.btShare);
         btShare.setOnClickListener(this);
         btShare.setTypeface(font);
         
-        btOk = (Button) findViewById(R.id.btOk);
+        btOk = findViewById(R.id.btOk);
         btOk.setOnClickListener(this);
         btOk.setTypeface(font);
 
@@ -111,37 +110,37 @@ public class Stats extends FragmentActivity implements OnClickListener
         calculateStats ();
     }
 
-    private int mLevel = 0;
-    private int mPoints = 0;
-    private int mFirePower = 0;
-    private int mAccuracy = 0;
-    
     private void calculateStats ()
     {
+        int mLevel;
+        int mPoints;
+        int mFirePower;
+        int mAccuracy;
+
         // Get level
-        this.mLevel = SharedPreferencesHelper.getLevel();
-        this.tvLevel.setText(String.valueOf(this.mLevel));
+        mLevel = SharedPreferencesHelper.getLevel();
+        this.tvLevel.setText(String.valueOf(mLevel));
         
         // Get points
-        this.mPoints = SharedPreferencesHelper.getPoints();
-        this.tvPoints.setText(String.valueOf(this.mPoints));
+        mPoints = SharedPreferencesHelper.getPoints();
+        this.tvPoints.setText(String.valueOf(mPoints));
         
         // Get fire-power
-        this.mFirePower = SharedPreferencesHelper.getShots();
-        this.tvBombs.setText(String.valueOf(this.mFirePower));
+        mFirePower = SharedPreferencesHelper.getShots();
+        this.tvBombs.setText(String.valueOf(mFirePower));
         
         // Calculate accuracy
         int impacts = SharedPreferencesHelper.getImpacts();
-        if (0 != this.mFirePower)
+        if (0 != mFirePower)
         {
-            this.mAccuracy = (int)((((double)impacts)/this.mFirePower)*100);
+            mAccuracy = (int)((((double)impacts)/mFirePower)*100);
         }
         else
         {
-            this.mAccuracy = 0;
+            mAccuracy = 0;
         }
         
-        this.tvAccuracy.setText(String.valueOf(this.mAccuracy) + "%");
+        this.tvAccuracy.setText(mAccuracy + "%");
         
         // GameTime
         String gameTime = GameTime.getGameTime();

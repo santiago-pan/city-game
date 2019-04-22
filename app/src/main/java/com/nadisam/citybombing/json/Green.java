@@ -6,7 +6,7 @@ public class Green
     // 2 - School
     // 3 - Hospital
     
-    int type;
+    private int type;
     
     public int getType()
     {

@@ -20,12 +20,12 @@ public class City implements DrawableItemInterface
     private Vector<Building> mBuildings         = null;
     private Random           mRandom            = null;
     private int              mDifficulty        = 0;
-    private boolean          mAllCrear          = false;
+    private boolean          mAllClear          = false;
     private boolean          mGreenDestroyed    = false;
     private boolean          mGreenDestroyedEnd = false;
     private boolean          mAllClearEnd       = false;
     private int              ALL_CLEAR_TIME     = 1000;
-    private int              GREEN_DESTRO_TIME  = 1000;
+    private int              GREEN_DESTROY_TIME  = 1000;
     private Extras           mExtras            = null;
     private Enemies          mEnemies           = null;
     private GreenBuildings   mGreenBuildings    = null;
@@ -175,13 +175,13 @@ public class City implements DrawableItemInterface
 
     private void checkGreenDestroyed()
     {
-        if (true == this.mGreenDestroyed)
+        if (this.mGreenDestroyed)
             return;
 
         for (int i = 0; i < mNumBuildings; i++)
         {
             Building building = mBuildings.get(i);
-            if (true == building.greenDestroyed())
+            if (building.greenDestroyed())
             {
                 this.mGreenDestroyed = true;
 
@@ -193,14 +193,14 @@ public class City implements DrawableItemInterface
                     {
                         City.this.mGreenDestroyedEnd = true;
                     }
-                }, this.GREEN_DESTRO_TIME);
+                }, this.GREEN_DESTROY_TIME);
             }
         }
     }
 
     private void checkAllClear()
     {
-        if (true == this.mAllCrear)
+        if (this.mAllClear)
             return;
 
         int numFloors = 0;
@@ -208,7 +208,7 @@ public class City implements DrawableItemInterface
         for (int i = 0; i < mNumBuildings; i++)
         {
             Building building = mBuildings.get(i);
-            if (false == building.isGreen())
+            if (!building.isGreen())
             {
                 numFloors += building.floors();
             }
@@ -217,12 +217,12 @@ public class City implements DrawableItemInterface
         // If there is at least one floor
         if (numFloors > 0)
         {
-            this.mAllCrear = false;
+            this.mAllClear = false;
         }
         else
         {
             Logger.debug("All is clear");
-            this.mAllCrear = true;
+            this.mAllClear = true;
 
             // Start timer to set allClearEnd = true after some time
             (new Timer()).schedule(new TimerTask() {
@@ -285,7 +285,7 @@ public class City implements DrawableItemInterface
             Vector<Integer> floorTypes = new Vector<Integer>();
 
             // Check if this building is a green building
-            if ((numGreenBuildings > 0) && (true == greensPositionList.contains(i)))
+            if ((numGreenBuildings > 0) && (greensPositionList.contains(i)))
             {
                 int indexOfGreen = greensPositionList.indexOf(i);
                 buildingGreen = this.mGreenBuildings.get().get(indexOfGreen);
@@ -321,7 +321,7 @@ public class City implements DrawableItemInterface
                 // Check if there is some extra in this building
                 if (numExtras > 0)
                 {
-                    if ((true == extraPositionList.contains(i)) && (numFloors > Defines.FLOOR_MIN_FLOORS))
+                    if ((extraPositionList.contains(i)) && (numFloors > Defines.FLOOR_MIN_FLOORS))
                     {
                         // Get the index where it should be
                         int indexOfExtra = extraPositionList.indexOf(i);
@@ -349,7 +349,7 @@ public class City implements DrawableItemInterface
                 // Check if there is some enemy in this building
                 if (numEnemies > 0)
                 {
-                    if (true == enemiesPositionList.contains(i))
+                    if (enemiesPositionList.contains(i))
                     {
                         // Get the index where it should be
                         int indexOfEnemy = enemiesPositionList.indexOf(i);

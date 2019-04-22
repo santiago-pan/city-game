@@ -15,12 +15,7 @@ import com.nadisam.citybombing.pro.R;
 
 public class CityBombing extends FragmentActivity implements OnClickListener
 {
-    private Button   btPlayGame   = null;
     private Button   btSoundOnOff = null;
-    private Button   btHelp       = null;
-    private Typeface font         = null;
-
-    //
     private boolean  bSoundOn     = true;
 
     @Override
@@ -29,11 +24,15 @@ public class CityBombing extends FragmentActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        Button   btPlayGame;
+        Button   btHelp;
+        Typeface font;
+
         font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.base_font));
 
-        btPlayGame = (Button) findViewById(R.id.btPlayGame);
-        btSoundOnOff = (Button) findViewById(R.id.btSound);
-        btHelp = (Button) findViewById(R.id.btHelp);
+        btPlayGame = findViewById(R.id.btPlayGame);
+        btSoundOnOff = findViewById(R.id.btSound);
+        btHelp = findViewById(R.id.btHelp);
 
         btPlayGame.setOnClickListener(this);
         btSoundOnOff.setOnClickListener(this);
@@ -66,7 +65,7 @@ public class CityBombing extends FragmentActivity implements OnClickListener
         super.onResume();
         
         // Play game music
-        if (true == SharedPreferencesHelper.getSound())
+        if (SharedPreferencesHelper.getSound())
         {
             AppCore.getContext().playMusic();
             AppCore.getContext().soundOn();
@@ -89,7 +88,7 @@ public class CityBombing extends FragmentActivity implements OnClickListener
         }
         else if (v.getId() == R.id.btSound)
         {
-            if (true == bSoundOn)
+            if (bSoundOn)
             {
                 setHmiSoundOff();
                 AppCore.getContext().soundOff();
